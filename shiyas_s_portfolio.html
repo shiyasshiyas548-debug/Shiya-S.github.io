@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiyas S. | Mechanical Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #182033;
+      --muted: #5f6f89;
+      --line: #dbe2ee;
+      --paper: #f7f9fc;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --teal: #0f9f9a;
+      --green: #2f855a;
+      --amber: #b7791f;
+      --navy: #101827;
+      --radius: 8px;
+      --shadow: 0 18px 50px rgba(22, 32, 51, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(37, 99, 235, 0.08), transparent 360px),
+        var(--paper);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 32px 0 24px;
+    }
+
+    .hero-main {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      color: var(--white);
+      background:
+        linear-gradient(115deg, rgba(16, 24, 39, 0.96), rgba(16, 24, 39, 0.72)),
+        url("https://images.unsplash.com/photo-1581091215367-59ab6b1b0a15?auto=format&fit=crop&w=1500&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(0deg, rgba(16, 24, 39, 0.9), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 500px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #dbeafe;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-top: 96px;
+      font-size: clamp(42px, 8vw, 88px);
+      line-height: 0.95;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .headline {
+      max-width: 660px;
+      margin-top: 18px;
+      color: #d8e3f7;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .contact-row,
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .contact-chip,
+    .tag,
+    .skill-item,
+    .lang-pill,
+    .badge {
+      border-radius: 999px;
+      white-space: normal;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #eef4ff;
+      background: rgba(255, 255, 255, 0.11);
+      font-size: 13px;
+      font-weight: 500;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .contact-chip:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .tag {
+      padding: 6px 11px;
+      color: #e0f2fe;
+      background: rgba(14, 165, 233, 0.16);
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 12px 34px rgba(22, 32, 51, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .profile-panel {
+      padding: 24px;
+    }
+
+    .profile-panel h2,
+    .section-title {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .profile-panel p {
+      margin-top: 13px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 20px;
+      background: var(--white);
+    }
+
+    .stat .val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .stat .lbl {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    main {
+      padding: 10px 0 48px;
+    }
+
+    .section {
+      padding: 28px 0 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card,
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 26px rgba(22, 32, 51, 0.06);
+    }
+
+    .card {
+      padding: 20px;
+    }
+
+    .project-card {
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    h3 {
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .desc,
+    .card p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge-blue {
+      color: #1d4ed8;
+      background: #dbeafe;
+    }
+
+    .badge-green {
+      color: var(--green);
+      background: #dcfce7;
+    }
+
+    .badge-amber {
+      color: var(--amber);
+      background: #fef3c7;
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .project-stats .stat {
+      min-height: 88px;
+      border-radius: var(--radius);
+      background: #f2f6fb;
+    }
+
+    .project-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .edu-list,
+    .award-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .edu-item,
+    .award-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .edu-item:first-child,
+    .award-item:first-child {
+      padding-top: 0;
+    }
+
+    .edu-item:last-child,
+    .award-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .edu-left h4,
+    .award-text {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .edu-left p,
+    .award-sub,
+    .edu-right {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .edu-left p,
+    .award-sub {
+      margin-top: 3px;
+    }
+
+    .edu-right {
+      min-width: 112px;
+      text-align: right;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .skill-item,
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .award-item {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .award-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex: 0 0 auto;
+    }
+
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .grid2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-content {
+        min-height: 560px;
+      }
+
+      h1 {
+        margin-top: 72px;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .hero {
+        padding-top: 12px;
+      }
+
+      .hero-main,
+      .hero-content {
+        min-height: 620px;
+      }
+
+      .hero-content {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .headline {
+        font-size: 16px;
+      }
+
+      .contact-chip {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .quick-stats,
+      .project-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-item {
+        display: block;
+      }
+
+      .edu-right {
+        min-width: 0;
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <section class="hero-main" aria-label="Portfolio introduction">
+        <div class="hero-content">
+          <div>
+            <span class="eyebrow">Mechanical Engineering Portfolio</span>
+            <h1>Shiyas S.</h1>
+            <p class="headline">
+              Mechanical Engineering student at Ahalia School of Engineering & Technology, Palakkad, focused on CAD design,
+              CNC machining, FDM 3D printing, and biodegradable composite materials.
+            </p>
+          </div>
+
+          <div>
+            <div class="contact-row" aria-label="Contact links">
+              <a href="mailto:shiyasshiyas548@gmail.com" class="contact-chip">Email: shiyasshiyas548@gmail.com</a>
+              <a href="tel:+916238989257" class="contact-chip">Phone: +91 6238989257</a>
+              <a href="https://www.linkedin.com/in/shiyas-s" class="contact-chip">LinkedIn: shiyas-s</a>
+              <a href="https://github.com/shiyasshiyas548-debug" class="contact-chip">GitHub: shiyasshiyas548-debug</a>
+            </div>
+            <div class="tag-row" aria-label="Core strengths">
+              <span class="tag">CAD Design</span>
+              <span class="tag">CNC Machining</span>
+              <span class="tag">FDM 3D Printing</span>
+              <span class="tag">AutoCAD</span>
+              <span class="tag">Solid Edge</span>
+              <span class="tag">Composite Materials</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="hero-side" aria-label="Profile summary">
+        <div class="panel profile-panel">
+          <h2>Profile</h2>
+          <p>
+            A practical engineering learner with experience in manufacturing exposure, project documentation,
+            media coordination, and hands-on work around plastics, machining, and material testing.
+          </p>
+        </div>
+        <div class="panel quick-stats">
+          <div class="stat">
+            <div class="val">2026</div>
+            <div class="lbl">Final year project</div>
+          </div>
+          <div class="stat">
+            <div class="val">3</div>
+            <div class="lbl">Composite filaments</div>
+          </div>
+          <div class="stat">
+            <div class="val">6</div>
+            <div class="lbl">ASTM test areas</div>
+          </div>
+          <div class="stat">
+            <div class="val">NSS</div>
+            <div class="lbl">Leadership role</div>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section class="section" id="education">
+        <div class="section-title">Education</div>
+        <div class="card edu-list">
+          <div class="edu-item">
+            <div class="edu-left">
+              <h4>B.Tech - Mechanical Engineering</h4>
+              <p>Ahalia School of Engineering and Technology, Palakkad</p>
+            </div>
+            <div class="edu-right">Nov 2022 - Present</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-left">
+              <h4>Plus Two (Class XII)</h4>
+              <p>GHSS Thenkurissi, Palakkad, Kerala</p>
+            </div>
+            <div class="edu-right">March 2021<br>70.5%</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-left">
+              <h4>SSLC (Class X)</h4>
+              <p>GHSS Kunissery, Palakkad, Kerala</p>
+            </div>
+            <div class="edu-right">March 2020<br>86%</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="project">
+        <div class="section-title">Final Year Project</div>
+        <article class="project-card">
+          <h3>Experimental Investigation on Properties of Biodegradable Material Infused PLA in FDM Process</h3>
+          <p class="desc">
+            Developed eco-friendly composite 3D printing filaments by integrating natural biodegradable materials,
+            including sisal fiber and wood flour, into PLA. Fabricated three filament compositions using twin-screw
+            extrusion and characterized them for tensile, compressive, flexural, impact, fire-retardation, and water
+            absorption properties following ASTM standards. Printed samples using a Bambu Lab A1 FDM printer.
+          </p>
+          <div class="badge-row">
+            <span class="badge badge-blue">PLA Composites</span>
+            <span class="badge badge-blue">FDM 3D Printing</span>
+            <span class="badge badge-blue">Twin-Screw Extrusion</span>
+            <span class="badge badge-green">Sisal Fiber</span>
+            <span class="badge badge-green">Wood Flour</span>
+            <span class="badge badge-amber">ASTM Testing</span>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <div class="val">3</div>
+              <div class="lbl">Filament types</div>
+            </div>
+            <div class="stat">
+              <div class="val">26.24%</div>
+              <div class="lbl">PLA tensile ratio</div>
+            </div>
+            <div class="stat">
+              <div class="val">6</div>
+              <div class="lbl">Test standards</div>
+            </div>
+          </div>
+          <p class="project-note">
+            Submitted to APJ Abdul Kalam Technological University, March 2026. Supervisor: Mr. Jishnoop Jayaprakash.
+          </p>
+        </article>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-title">Skills</div>
+        <div class="skill-grid">
+          <div class="skill-item">AutoCAD</div>
+          <div class="skill-item">Solid Edge</div>
+          <div class="skill-item">CAD Design</div>
+          <div class="skill-item">CNC Machining</div>
+          <div class="skill-item">Machining Processes</div>
+          <div class="skill-item">FDM 3D Printing</div>
+          <div class="skill-item">Canva</div>
+          <div class="skill-item">Overleaf / LaTeX</div>
+          <div class="skill-item">VN Editor</div>
+          <div class="skill-item">C Programming</div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-title">Industrial Experience</div>
+        <div class="card">
+          <h3>Industrial Visit - Central Institute of Plastics Engineering and Technology</h3>
+          <div class="meta">October 2024</div>
+          <p>
+            Gained hands-on exposure to plastic technology, molding machines, and industry-level equipment. Assisted in
+            understanding plastic product molding and observed real-world manufacturing processes.
+          </p>
+        </div>
+      </section>
+
+      <section class="section grid2" id="leadership">
+        <div>
+          <div class="section-title">Awards & Leadership</div>
+          <div class="card award-list">
+            <div class="award-item">
+              <div class="award-dot" aria-hidden="true"></div>
+              <div>
+                <div class="award-text">Volunteer - CBSE State Kalolsavam 2024</div>
+                <div class="award-sub">State-level cultural event volunteer</div>
+              </div>
+            </div>
+            <div class="award-item">
+              <div class="award-dot" aria-hidden="true"></div>
+              <div>
+                <div class="award-text">Media Coordinator - NSS, Ahalia School of Engineering and Technology</div>
+                <div class="award-sub">Managed media and communications for the NSS unit</div>
+              </div>
+            </div>
+            <div class="award-item">
+              <div class="award-dot" aria-hidden="true"></div>
+              <div>
+                <div class="award-text">NSS Unit Coordinator 2024 - NSS Unit 311</div>
+                <div class="award-sub">Led unit activities and community service programs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title">Languages Known</div>
+          <div class="card">
+            <div class="lang-row">
+              <div class="lang-pill">Malayalam</div>
+              <div class="lang-pill">English</div>
+              <div class="lang-pill">Tamil</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Shiyas S. - Mechanical Engineering Portfolio
+    </footer>
+  </div>
+</body>
+</html>
